@@ -9,15 +9,9 @@ public class Trip
     [Required] [MaxLength(120)] public string Description { get; set; }
     [Required] public DateTime  DateFrom { get; set; }
     [Required] public DateTime DateTo { get; set; }
+    
     [Required] public int MaxPeople { get; set; }
 
-    public Trip(int idTrip, string name, string description, DateTime dateFrom, DateTime dateTo, int maxPeople)
-    {
-        IdTrip = idTrip;
-        Name = name;
-        Description = description;
-        DateFrom = dateFrom;
-        DateTo = dateTo;
-        MaxPeople = maxPeople;
-    }
+    public virtual ICollection<ClientTrip> ClientTrips { get; set; } = new List<ClientTrip>();
+    public virtual ICollection<Country> IdCountries { get; set; } = new List<Country>();
 }
